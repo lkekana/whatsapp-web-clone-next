@@ -1,6 +1,48 @@
+"use client";
+import Sidebar from "@/components/sidebar";
+import Home from "./home";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import Loader from "@/components/loader";
 
-export default function Home() {
+const userPrefersDark =
+	typeof window !== "undefined" &&
+	window.matchMedia &&
+	window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+export default function HomePage() {
+	const [appLoaded, setAppLoaded] = useState(false);
+	const [startLoadProgress, setStartLoadProgress] = useState(false);
+
+	useEffect(() => {
+		if (userPrefersDark) document.body.classList.add("dark-theme");
+		stopLoad();
+	}, []);
+
+	const stopLoad = () => {
+		setStartLoadProgress(true);
+		setTimeout(() => setAppLoaded(true), 3000);
+	};
+
+	if (!appLoaded) return <Loader done={startLoadProgress} />;
+	// return (
+	//   <div>
+	//     <div className="gap-2 py-8">
+	//     </div>
+	//   </div>
+	// );
+
+	return (
+		<div className="app">
+			<p className="app__mobile-message"> Only available on desktop 😊. </p>
+			<div className="app-content">
+				<Sidebar />
+				<Home />
+			</div>
+		</div>
+	);
+
+	/*
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -98,4 +140,5 @@ export default function Home() {
       </footer>
     </div>
   );
+  */
 }

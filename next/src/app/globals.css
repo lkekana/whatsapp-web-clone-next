@@ -1,21 +1,113 @@
+@import url(../assets/css/index.css);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #ffffff;
+	--foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+	color: var(--foreground);
+	background: var(--background);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #4a4a4a;
+	overflow: hidden;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+
+.app {
+	width: 100%;
+	min-height: 100vh;
+	background: #dddbd1;
+	position: relative;
+}
+
+.app::before {
+	width: 100%;
+	height: 120px;
+	top: 0;
+	left: 0;
+	background: rgb(0, 150, 136);
+	position: absolute;
+	content: "";
+	z-index: 1;
+}
+
+.app__mobile-message {
+	display: none;
+}
+
+.app-content {
+	width: 100%;
+	height: 100vh;
+	max-width: 1450px;
+	margin: 0 auto;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+	position: relative;
+	z-index: 100;
+	display: flex;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 500px) {
+	.app__mobile-message {
+		padding-top: 200px;
+		text-align: center;
+		font-size: 1.2rem;
+		display: block;
+	}
+	.app-content {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1450px) {
+	.app {
+		padding: 20px;
+	}
+	.app-content {
+		height: calc(100vh - 40px);
+	}
+}
+
+.dark-theme .app {
+	background: #090f13;
+}
+
+.dark-theme .app::before {
+	display: none;
+}
+
+.dark-theme .app__mobile-message {
+	color: rgba(241, 241, 242, 0.92);
+}
+
+@media screen and (max-width: 500px) {
+	.dark-theme .app::before {
+		display: block;
+		background: rgb(5, 97, 98);
+	}
 }
