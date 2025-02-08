@@ -1,8 +1,9 @@
 import Icon from "@/components/icon";
 import type React from "react";
-import media from "assets/images/women.jpeg";
+import media from "@/assets/images/women.jpeg";
 import formatTime from "@/utils/formatTime";
 import type { Messages } from "@/data/contacts";
+import Image from "next/image";
 
 interface ConvoProps {
 	lastMsgRef: React.RefObject<HTMLDivElement>;
@@ -41,7 +42,7 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 										}`}
 										ref={assignRef()}
 									>
-										<img src={media} alt="" className="chat__img" />
+										<Image src={media} alt="" className="chat__img" />
 										<span className="chat__msg-footer">
 											<span>{formatTime(message.time)}</span>
 											{!message.sender && (
