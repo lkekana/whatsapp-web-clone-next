@@ -6,19 +6,6 @@ import { useEffect, useState } from "react";
 import Loader from "@/components/loader";
 
 export default function HomePage() {
-	const [appLoaded, setAppLoaded] = useState(false);
-	const [startLoadProgress, setStartLoadProgress] = useState(false);
-
-	useEffect(() => {
-		stopLoad();
-	}, []);
-
-	const stopLoad = () => {
-		setStartLoadProgress(true);
-		setTimeout(() => setAppLoaded(true), 3000);
-	};
-
-	if (!appLoaded) return <Loader done={startLoadProgress} />;
 	// return (
 	//   <div>
 	//     <div className="gap-2 py-8">

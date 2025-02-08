@@ -1,5 +1,5 @@
 import Icon from "@/components/icon";
-import type React from "react";
+import React from "react";
 import media from "@/assets/images/women.jpeg";
 import formatTime from "@/utils/formatTime";
 import type { Messages } from "@/data/contacts";
@@ -34,7 +34,8 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 								? lastMsgRef
 								: undefined;
 						return (
-							<>
+							// biome-ignore lint/suspicious/noArrayIndexKey: key is unique
+							<React.Fragment key={`${date}-${msgIndex}`}>
 								{message.image ? (
 									<div
 										className={`chat__msg chat__img-wrapper ${
@@ -114,7 +115,7 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 										</button>
 									</p>
 								)}
-							</>
+							</React.Fragment>
 						);
 					})}
 				</div>

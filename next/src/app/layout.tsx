@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { UsersProvider } from "@/contexts/usersContext";
 import { SocketProvider } from "@/contexts/socketContext";
+import LoaderWrapper from "./loader-wrapper";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -32,7 +33,9 @@ export default function RootLayout({
 			>
 			<ThemeProvider defaultTheme="system">
 				<SocketProvider>
-					<UsersProvider>{children}</UsersProvider>
+					<UsersProvider>
+						<LoaderWrapper>{children}</LoaderWrapper>
+					</UsersProvider>
 				</SocketProvider>
 				</ThemeProvider>
 			</body>
