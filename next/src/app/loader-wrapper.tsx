@@ -4,16 +4,18 @@ import Loader from "@/components/loader";
 
 const LOAD_TIME_MS = 3000;
 
-export default function LoaderWrapper({ children }: { children: React.ReactNode }) {
-  const [appLoaded, setAppLoaded] = useState(false);
-  const [startLoadProgress, setStartLoadProgress] = useState(false);
+export default function LoaderWrapper({
+	children,
+}: { children: React.ReactNode }) {
+	const [appLoaded, setAppLoaded] = useState(false);
+	const [startLoadProgress, setStartLoadProgress] = useState(false);
 
-  useEffect(() => {
-    setStartLoadProgress(true);
-    setTimeout(() => setAppLoaded(true), LOAD_TIME_MS);
-  }, []);
+	useEffect(() => {
+		setStartLoadProgress(true);
+		setTimeout(() => setAppLoaded(true), LOAD_TIME_MS);
+	}, []);
 
-  if (!appLoaded) return <Loader done={startLoadProgress} />;
+	if (!appLoaded) return <Loader done={startLoadProgress} />;
 
-  return <>{children}</>;
+	return <>{children}</>;
 }

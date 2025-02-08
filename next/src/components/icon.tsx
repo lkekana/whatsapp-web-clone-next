@@ -1,5 +1,5 @@
 import Icons from "@/assets/icons";
-import { FC, JSX } from "react";
+import type { FC, JSX } from "react";
 
 type IconProps = {
 	[key: string]: (props: any) => JSX.Element;

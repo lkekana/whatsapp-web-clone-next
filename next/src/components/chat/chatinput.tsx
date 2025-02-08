@@ -28,7 +28,6 @@ const ChatInput = ({
 	setNewMessage,
 	submitNewMessage,
 }: ChatInputProps) => {
-
 	const detectEnterPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === "Enter" || e.keyCode === 13) {
 			submitNewMessage();
@@ -38,11 +37,19 @@ const ChatInput = ({
 	return (
 		<div className="chat__input-wrapper">
 			{showEmojis && (
-				<button type="button" aria-label="Close emojis" onClick={() => setShowEmojis(false)}>
+				<button
+					type="button"
+					aria-label="Close emojis"
+					onClick={() => setShowEmojis(false)}
+				>
 					<Icon id="cancel" className="chat__input-icon" />
 				</button>
 			)}
-			<button type="button" aria-label="Emojis" onClick={() => setShowEmojis(true)}>
+			<button
+				type="button"
+				aria-label="Emojis"
+				onClick={() => setShowEmojis(true)}
+			>
 				<Icon
 					id="smiley"
 					className={`chat__input-icon ${
@@ -61,7 +68,11 @@ const ChatInput = ({
 				</>
 			)}
 			<div className="pos-rel">
-				<button type="button" aria-label="Attach" onClick={() => setShowAttach(!showAttach)}>
+				<button
+					type="button"
+					aria-label="Attach"
+					onClick={() => setShowAttach(!showAttach)}
+				>
 					<Icon
 						id="attach"
 						className={`chat__input-icon ${
@@ -75,7 +86,7 @@ const ChatInput = ({
 				>
 					{attachButtons.map((btn) => (
 						<button
-                            type="button"
+							type="button"
 							className="chat__attach-btn"
 							aria-label={btn.label}
 							key={btn.label}
@@ -93,11 +104,15 @@ const ChatInput = ({
 				onKeyDown={detectEnterPress}
 			/>
 			{newMessage ? (
-				<button  type="button" aria-label="Send message" onClick={submitNewMessage}>
+				<button
+					type="button"
+					aria-label="Send message"
+					onClick={submitNewMessage}
+				>
 					<Icon id="send" className="chat__input-icon" />
 				</button>
 			) : (
-				<button  type="button" aria-label="Record voice note">
+				<button type="button" aria-label="Record voice note">
 					<Icon id="microphone" className="chat__input-icon" />
 				</button>
 			)}

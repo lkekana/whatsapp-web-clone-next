@@ -34,7 +34,7 @@ const alerts = [
 				<a
 					className="underline"
 					href="https://faq.whatsapp.com/web/troubleshooting/cant-connect-to-whatsapp-web-or-desktop/"
-					target="_blank"
+					target="_blank" rel="noreferrer"
 				>
 					{" "}
 					Learn more.{" "}

@@ -1,19 +1,19 @@
-[data-theme='dark'] .focus-visible {
+[data-theme="dark"] .focus-visible {
 	outline: 2px solid rgba(70, 108, 119, 0.3);
 }
 
-[data-theme='dark'] .header {
+[data-theme="dark"] .header {
 	background: rgb(42, 47, 50);
 }
 
-[data-theme='dark'] .search-wrapper {
+[data-theme="dark"] .search-wrapper {
 	background: rgb(19, 28, 33);
 }
 
-[data-theme='dark'] .search {
+[data-theme="dark"] .search {
 	background: rgb(50, 55, 57);
 }
 
-[data-theme='dark'] .search__back-btn {
+[data-theme="dark"] .search__back-btn {
 	color: inherit;
 }

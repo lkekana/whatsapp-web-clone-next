@@ -36,7 +36,11 @@ const Profile = ({ user }: ProfileProps) => {
 		<div className="profile">
 			<div className="profile__section profile__section--personal">
 				<div className="profile__avatar-wrapper">
-					<Image src={user.profile_picture} alt={user.name} className="avatar" />
+					<Image
+						src={user.profile_picture}
+						alt={user.name}
+						className="avatar"
+					/>
 				</div>
 				<h2 className="profile__name"> {user.name} </h2>
 			</div>
@@ -85,7 +89,7 @@ const Profile = ({ user }: ProfileProps) => {
 							Off
 						</span>
 					</p>
-					<button type="button"  className="profile__action-right">
+					<button type="button" className="profile__action-right">
 						<Icon id="rightArrow" className="profile__heading-icon" />{" "}
 					</button>
 				</li>

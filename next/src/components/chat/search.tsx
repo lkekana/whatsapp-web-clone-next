@@ -7,7 +7,7 @@ const Search = () => {
 			<div className="search-wrapper">
 				<div className="search-icons">
 					<Icon id="search" className="search-icon" />
-					<button type="button"  className="search__back-btn">
+					<button type="button" className="search__back-btn">
 						<Icon id="back" />
 					</button>
 				</div>

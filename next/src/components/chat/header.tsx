@@ -10,7 +10,11 @@ interface HeaderProps {
 	openSearchSidebar: () => void;
 }
 
-const Header = ({ user, openProfileSidebar, openSearchSidebar }: HeaderProps) => {
+const Header = ({
+	user,
+	openProfileSidebar,
+	openSearchSidebar,
+}: HeaderProps) => {
 	return (
 		<header className="header chat__header">
 			<div
@@ -26,7 +30,7 @@ const Header = ({ user, openProfileSidebar, openSearchSidebar }: HeaderProps) =>
 			</div>
 
 			<div
-				className="chat__contact-wrapper" 
+				className="chat__contact-wrapper"
 				onClick={openProfileSidebar}
 				onKeyUp={(e) => {
 					if (e.key === "Enter" || e.key === " ") {

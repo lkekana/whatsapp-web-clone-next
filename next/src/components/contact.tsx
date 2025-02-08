@@ -61,7 +61,7 @@ const Contact = ({ contact }: ContactProps) => {
 							)}
 							<span
 								className={`sidebar-contact__message ${
-									!!contact.unread ? "sidebar-contact__message--unread" : ""
+									contact.unread ? "sidebar-contact__message--unread" : ""
 								}`}
 							>
 								{contact.typing ? <i> typing...</i> : lastMessage?.content}
@@ -71,7 +71,7 @@ const Contact = ({ contact }: ContactProps) => {
 							{contact.pinned && (
 								<Icon id="pinned" className="sidebar-contact__icon" />
 							)}
-							{!!contact.unread && (
+							{contact.unread > 0 && (
 								<span className="sidebar-contact__unread">
 									{contact.unread}
 								</span>

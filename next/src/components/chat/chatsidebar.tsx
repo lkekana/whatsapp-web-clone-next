@@ -8,7 +8,12 @@ interface ChatSidebarProps {
 	children: React.ReactNode;
 }
 
-const ChatSidebar = ({ active, closeSidebar, heading, children }: ChatSidebarProps) => {
+const ChatSidebar = ({
+	active,
+	closeSidebar,
+	heading,
+	children,
+}: ChatSidebarProps) => {
 	return (
 		<aside className={`chat-sidebar ${active ? "chat-sidebar--active" : ""}`}>
 			<header className="header chat-sidebar__header">

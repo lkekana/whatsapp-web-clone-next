@@ -19,8 +19,11 @@ interface EmojiTrayProps {
 	setNewMessage: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const EmojiTray = ({ showEmojis, newMessage, setNewMessage }: EmojiTrayProps) => {
-
+const EmojiTray = ({
+	showEmojis,
+	newMessage,
+	setNewMessage,
+}: EmojiTrayProps) => {
 	const addEmoji = (emoji: string) => {
 		setNewMessage(newMessage + emoji);
 	};
@@ -61,7 +64,7 @@ const EmojiTray = ({ showEmojis, newMessage, setNewMessage }: EmojiTrayProps) =>
 									backgroundPositionY: -6 - 52 * rowIndex,
 								}}
 							/>
-						))
+						)),
 					)}
 				</div>
 				<h4 className="emojis__label"> Animals {"&"} Nature </h4>
@@ -80,7 +83,7 @@ const EmojiTray = ({ showEmojis, newMessage, setNewMessage }: EmojiTrayProps) =>
 									backgroundPositionY: -6 - 52 * rowIndex,
 								}}
 							/>
-						))
+						)),
 					)}
 				</div>
 			</div>

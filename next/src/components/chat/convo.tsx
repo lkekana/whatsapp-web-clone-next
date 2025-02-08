@@ -64,7 +64,7 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 										</span>
 
 										<button
-                                            type="button"
+											type="button"
 											aria-label="Message options"
 											className="chat__msg-options"
 										>
@@ -79,7 +79,7 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 											{formatTime(message.time)}
 										</span>
 										<button
-                                            type="button"
+											type="button"
 											aria-label="Message options"
 											className="chat__msg-options"
 										>
@@ -107,7 +107,7 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 											/>
 										</span>
 										<button
-                                            type="button"
+											type="button"
 											aria-label="Message options"
 											className="chat__msg-options"
 										>

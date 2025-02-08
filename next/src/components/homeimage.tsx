@@ -9,15 +9,15 @@ import { useTheme } from "next-themes";
 
 const HomeImage = () => {
 	const { theme } = useTheme();
-    const darkMode = theme === "dark";
+	const darkMode = theme === "dark";
 	return (
-        <div className="home__img-wrapper">
-            <Image
-                src={darkMode ? introImgDark : introImgLight}
-                alt=""
-                className="home__img"
-            />
-        </div>
+		<div className="home__img-wrapper">
+			<Image
+				src={darkMode ? introImgDark : introImgLight}
+				alt=""
+				className="home__img"
+			/>
+		</div>
 	);
 };
 

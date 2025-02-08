@@ -15,12 +15,12 @@ import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.
 import { useRouter } from "next/navigation";
 
 interface ChatProps {
-    userId: number;
+	userId: number;
 }
 
 const Chat = ({ userId }: ChatProps) => {
 	const { users, setUserAsUnread, addNewMessage } = useUsersContext();
-    const user = users.find((u) => u.id === userId);
+	const user = users.find((u) => u.id === userId);
 
 	const lastMsgRef = useRef<HTMLDivElement>(null);
 	const [showAttach, setShowAttach] = useState(false);
@@ -28,21 +28,20 @@ const Chat = ({ userId }: ChatProps) => {
 	const [showProfileSidebar, setShowProfileSidebar] = useState(false);
 	const [showSearchSidebar, setShowSearchSidebar] = useState(false);
 	const [newMessage, setNewMessage] = useState("");
-  	const router = useRouter();
+	const router = useRouter();
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: enough deps for me
 	useEffect(() => {
 		if (!user) {
-            router.push("/");
-        }
-		else {
+			router.push("/");
+		} else {
 			scrollToLastMsg();
 			setUserAsUnread(user.id);
 		}
 	}, []);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: enough deps for me
-    useEffect(() => {
+	useEffect(() => {
 		user && scrollToLastMsg();
 	}, [users]);
 
@@ -68,19 +67,26 @@ const Chat = ({ userId }: ChatProps) => {
 	return (
 		<div className="chat">
 			<div className="chat__body">
-				<div className="chat__bg"/>
+				<div className="chat__bg" />
 
-				{user && <Header
-					user={user}
-					openProfileSidebar={() => openSidebar(setShowProfileSidebar)}
-					openSearchSidebar={() => openSidebar(setShowSearchSidebar)}
-				/>}
+				{user && (
+					<Header
+						user={user}
+						openProfileSidebar={() => openSidebar(setShowProfileSidebar)}
+						openSearchSidebar={() => openSidebar(setShowSearchSidebar)}
+					/>
+				)}
 				<div className="chat__content">
-                    {user && <Convo lastMsgRef={lastMsgRef as React.RefObject<HTMLDivElement>} messages={user.messages} />}
+					{user && (
+						<Convo
+							lastMsgRef={lastMsgRef as React.RefObject<HTMLDivElement>}
+							messages={user.messages}
+						/>
+					)}
 				</div>
 				<footer className="chat__footer">
 					<button
-                        type="button"
+						type="button"
 						className="chat__scroll-btn"
 						aria-label="scroll down"
 						onClick={scrollToLastMsg}
