@@ -12,13 +12,13 @@ import Profile from "@/components/chat/profile";
 import Convo from "@/components/chat/convo";
 import { useUsersContext } from "@/contexts/usersContext";
 import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { useRouter } from "next/navigation";
 
 interface ChatProps {
     userId: number;
-    router: AppRouterInstance;
 }
 
-const Chat = ({ userId, router }: ChatProps) => {
+const Chat = ({ userId }: ChatProps) => {
 	const { users, setUserAsUnread, addNewMessage } = useUsersContext();
     const user = users.find((u) => u.id === userId);
 
@@ -28,6 +28,7 @@ const Chat = ({ userId, router }: ChatProps) => {
 	const [showProfileSidebar, setShowProfileSidebar] = useState(false);
 	const [showSearchSidebar, setShowSearchSidebar] = useState(false);
 	const [newMessage, setNewMessage] = useState("");
+  	const router = useRouter();
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: enough deps for me
 	useEffect(() => {

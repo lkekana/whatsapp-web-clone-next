@@ -1,24 +1,15 @@
-"use client";
 import React from "react";
 import "./home.css";
 import Icon from "@/components/icon";
 import introImgLight from "@/assets/images/intro-connection-light.jpg";
 import introImgDark from "@/assets/images/intro-connection-dark.jpg";
 import Image from "next/image";
+import HomeImage from "@/components/homeimage";
 
 const Home = () => {
-	const darkTheme = document.body.classList.contains("dark-theme");
-
 	return (
 		<div className="home">
-			<div className="home__img-wrapper">
-				<Image
-					src={darkTheme ? introImgDark : introImgLight}
-					alt=""
-					className="home__img"
-				/>
-			</div>
-
+			<HomeImage />
 			<h1 className="home__title"> Keep your phone connected </h1>
 			<p className="home__text">
 				WhatsApp connects to your phone to sync messages. To reduce data usage,
