@@ -1,10 +1,10 @@
-import ppGirl1 from "assets/images/profile-picture-girl-1.jpeg";
-import ppGirl2 from "assets/images/profile-picture-girl-2.jpeg";
-import ppGirl3 from "assets/images/profile-picture-girl-3.jpeg";
-import ppGirl4 from "assets/images/profile-picture-girl-4.jpeg";
-import ppBoy1 from "assets/images/profile-picture-boy-1.jpeg";
-import ppBoy2 from "assets/images/profile-picture-boy-2.jpeg";
-import ppBoy3 from "assets/images/profile-picture-boy-3.jpeg";
+import ppGirl1 from "@/assets/images/profile-picture-girl-1.jpeg";
+import ppGirl2 from "@/assets/images/profile-picture-girl-2.jpeg";
+import ppGirl3 from "@/assets/images/profile-picture-girl-3.jpeg";
+import ppGirl4 from "@/assets/images/profile-picture-girl-4.jpeg";
+import ppBoy1 from "@/assets/images/profile-picture-boy-1.jpeg";
+import ppBoy2 from "@/assets/images/profile-picture-boy-2.jpeg";
+import ppBoy3 from "@/assets/images/profile-picture-boy-3.jpeg";
 import type { StaticImageData } from "next/image";
 
 const sentences = [
@@ -72,6 +72,10 @@ export type Message = {
     status: string | null;
 };
 
+export interface Messages {
+	[key: string]: Message[];
+  }
+
 export type User = {
     id: number;
     profile_picture: StaticImageData;
@@ -79,11 +83,7 @@ export type User = {
     phone_number: string;
     whatsapp_name: string;
     unread: number;
-    messages: {
-        "04/06/2021": Message[];
-        YESTERDAY: Message[];
-        TODAY: Message[];
-    };
+    messages: Messages;
     group: boolean;
     pinned: boolean;
     typing: boolean;
@@ -125,7 +125,7 @@ const users: User[] = [
 				},
 			],
 
-			YESTERDAY: [
+			"YESTERDAY": [
 				{
 					content: getRandomSentence(),
 					sender: 1,
@@ -152,7 +152,7 @@ const users: User[] = [
 				},
 			],
 
-			TODAY: [
+			"TODAY": [
 				{
 					content: getRandomSentence(),
 					sender: null,

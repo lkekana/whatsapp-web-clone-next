@@ -1,3 +1,4 @@
+"use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import contacts, {type Message, type User} from "@/data/contacts";
 import { useSocketContext } from "./socketContext";
@@ -8,7 +9,11 @@ const UsersContext = createContext<{
   users: User[];
   setUserAsUnread: (userId: number) => void;
   addNewMessage: (userId: number, message: string) => void;
-} | undefined>(undefined);
+}>({
+	  users: [],
+  setUserAsUnread: () => {},
+  addNewMessage: () => {},
+});
 
 const useUsersContext = () => useContext(UsersContext);
 
@@ -17,6 +22,7 @@ const UsersProvider = ({ children }: { children: ReactNode }) => {
 	const socket = useSocketContext();
 
 	const [users, setUsers] = useState<User[]>(contacts);
+	console.log("users", users);
 
 	const _updateUserProp = (userId: number, prop: string, value: number | boolean) => {
 		setUsers((users) => {
