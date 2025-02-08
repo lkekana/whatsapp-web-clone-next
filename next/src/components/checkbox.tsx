@@ -1,5 +1,5 @@
 import Icon from "@/components/icon";
-import React from "react";
+import type React from "react";
 import "./checkbox.css";
 
 interface CheckboxProps {

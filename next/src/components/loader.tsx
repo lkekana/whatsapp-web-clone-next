@@ -14,7 +14,7 @@ const Loader = ({ done }: LoaderProps) => {
 			</div>
 			<div
 				className={`loader__progress ${done ? "loader__progress--done" : ""}`}
-			></div>
+			/>
 			<h1 className="loader__title"> Whatsapp</h1>
 			<p className="loader__desc">
 				<Icon id="lock" className="loader__icon" />
