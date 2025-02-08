@@ -3,7 +3,7 @@ import React from "react";
 import "./checkbox.css";
 
 interface CheckboxProps {
-  inputProps: React.InputHTMLAttributes<HTMLInputElement>;
+	inputProps: React.InputHTMLAttributes<HTMLInputElement>;
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({ inputProps }) => {

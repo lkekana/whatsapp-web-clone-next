@@ -25,7 +25,11 @@ const Sidebar = () => {
 							className="sidebar__action-icon sidebar__action-icon--status"
 						/>
 					</button>
-					<button type="button" className="sidebar__action" aria-label="New chat">
+					<button
+						type="button"
+						className="sidebar__action"
+						aria-label="New chat"
+					>
 						<Icon id="chat" className="sidebar__action-icon" />
 					</button>
 					<OptionsBtn
@@ -49,7 +53,7 @@ const Sidebar = () => {
 			<div className="search-wrapper">
 				<div className="search-icons">
 					<Icon id="search" className="search-icon" />
-					<button type="button"  className="search__back-btn">
+					<button type="button" className="search__back-btn">
 						<Icon id="back" />
 					</button>
 				</div>

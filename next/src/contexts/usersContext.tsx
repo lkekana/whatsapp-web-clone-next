@@ -1,22 +1,20 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
-import contacts, {type Message, type User} from "@/data/contacts";
+import contacts, { type Message, type User } from "@/data/contacts";
 import { useSocketContext } from "./socketContext";
 import type { ReactNode } from "react";
 
-
 const UsersContext = createContext<{
-  users: User[];
-  setUserAsUnread: (userId: number) => void;
-  addNewMessage: (userId: number, message: string) => void;
+	users: User[];
+	setUserAsUnread: (userId: number) => void;
+	addNewMessage: (userId: number, message: string) => void;
 }>({
-	  users: [],
-  setUserAsUnread: () => {},
-  addNewMessage: () => {},
+	users: [],
+	setUserAsUnread: () => {},
+	addNewMessage: () => {},
 });
 
 const useUsersContext = () => useContext(UsersContext);
-
 
 const UsersProvider = ({ children }: { children: ReactNode }) => {
 	const socket = useSocketContext();
@@ -24,7 +22,11 @@ const UsersProvider = ({ children }: { children: ReactNode }) => {
 	const [users, setUsers] = useState<User[]>(contacts);
 	console.log("users", users);
 
-	const _updateUserProp = (userId: number, prop: string, value: number | boolean) => {
+	const _updateUserProp = (
+		userId: number,
+		prop: string,
+		value: number | boolean,
+	) => {
 		setUsers((users) => {
 			const usersCopy = [...users];
 			const userIndex = users.findIndex((user) => user.id === userId);
@@ -34,17 +36,17 @@ const UsersProvider = ({ children }: { children: ReactNode }) => {
 		});
 	};
 
-	const setUserAsTyping = (data: { userId: number; }) => {
+	const setUserAsTyping = (data: { userId: number }) => {
 		const { userId } = data;
 		_updateUserProp(userId, "typing", true);
 	};
 
-	const setUserAsNotTyping = (data: { userId: number; }) => {
+	const setUserAsNotTyping = (data: { userId: number }) => {
 		const { userId } = data;
 		_updateUserProp(userId, "typing", false);
 	};
 
-	const fetchMessageResponse = (data: { userId: number; response: string; }) => {
+	const fetchMessageResponse = (data: { userId: number; response: string }) => {
 		setUsers((users) => {
 			const { userId, response } = data;
 
@@ -65,9 +67,9 @@ const UsersProvider = ({ children }: { children: ReactNode }) => {
 
 	useEffect(() => {
 		if (socket === null) return;
-        socket.off("fetch_response");
-        socket.off("start_typing");
-        socket.off("stop_typing");
+		socket.off("fetch_response");
+		socket.off("start_typing");
+		socket.off("stop_typing");
 		socket.on("fetch_response", fetchMessageResponse);
 		socket.on("start_typing", setUserAsTyping);
 		socket.on("stop_typing", setUserAsNotTyping);

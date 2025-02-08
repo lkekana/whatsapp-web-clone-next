@@ -65,28 +65,28 @@ const getRandomSentence = () => {
 };
 
 export type Message = {
-    content?: string;
-    image?: boolean;
-    sender: number | null;
-    time: string;
-    status: string | null;
+	content?: string;
+	image?: boolean;
+	sender: number | null;
+	time: string;
+	status: string | null;
 };
 
 export interface Messages {
 	[key: string]: Message[];
-  }
+}
 
 export type User = {
-    id: number;
-    profile_picture: StaticImageData;
-    name: string;
-    phone_number: string;
-    whatsapp_name: string;
-    unread: number;
-    messages: Messages;
-    group: boolean;
-    pinned: boolean;
-    typing: boolean;
+	id: number;
+	profile_picture: StaticImageData;
+	name: string;
+	phone_number: string;
+	whatsapp_name: string;
+	unread: number;
+	messages: Messages;
+	group: boolean;
+	pinned: boolean;
+	typing: boolean;
 };
 
 const users: User[] = [
@@ -125,7 +125,7 @@ const users: User[] = [
 				},
 			],
 
-			"YESTERDAY": [
+			YESTERDAY: [
 				{
 					content: getRandomSentence(),
 					sender: 1,
@@ -152,7 +152,7 @@ const users: User[] = [
 				},
 			],
 
-			"TODAY": [
+			TODAY: [
 				{
 					content: getRandomSentence(),
 					sender: null,
