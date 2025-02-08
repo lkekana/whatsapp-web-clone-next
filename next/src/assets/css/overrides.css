@@ -43,10 +43,10 @@ ul {
 	background: rgba(255, 255, 255, 0.1);
 }
 
-.dark-theme ::-webkit-scrollbar-thumb {
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
 	background-color: rgba(255, 255, 255, 0.16);
 }
 
-.dark-theme ::-webkit-scrollbar-track {
+[data-theme='dark'] ::-webkit-scrollbar-track {
 	background-color: initial;
 }

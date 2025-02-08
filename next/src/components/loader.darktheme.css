@@ -1,8 +1,8 @@
-.dark-theme .loader {
+[data-theme='dark'] .loader {
 	background: rgb(18.6, 28.22, 33.4);
 }
 
-.dark-theme .loader__logo-wrapper::after {
+[data-theme='dark'] .loader__logo-wrapper::after {
 	background: linear-gradient(
 		90deg,
 		rgba(18.6, 28.22, 33.4, 0.5) 0,
@@ -14,22 +14,22 @@
 	);
 }
 
-.dark-theme .loader__logo {
+[data-theme='dark'] .loader__logo {
 	fill: rgb(108, 113, 117);
 }
 
-.dark-theme .loader__progress {
+[data-theme='dark'] .loader__progress {
 	background: rgb(42, 47, 50);
 }
 
-.dark-theme .loader__progress::after {
+[data-theme='dark'] .loader__progress::after {
 	background: rgb(12, 137, 124);
 }
 
-.dark-theme .loader__title {
+[data-theme='dark'] .loader__title {
 	color: rgba(241, 241, 242, 0.88);
 }
 
-.dark-theme .loader__desc {
+[data-theme='dark'] .loader__desc {
 	color: rgba(241, 241, 242, 0.45);
 }

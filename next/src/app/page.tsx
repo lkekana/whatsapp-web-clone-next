@@ -5,17 +5,11 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Loader from "@/components/loader";
 
-const userPrefersDark =
-	typeof window !== "undefined" &&
-	window.matchMedia &&
-	window.matchMedia("(prefers-color-scheme: dark)").matches;
-
 export default function HomePage() {
 	const [appLoaded, setAppLoaded] = useState(false);
 	const [startLoadProgress, setStartLoadProgress] = useState(false);
 
 	useEffect(() => {
-		if (userPrefersDark) document.body.classList.add("dark-theme");
 		stopLoad();
 	}, []);
 

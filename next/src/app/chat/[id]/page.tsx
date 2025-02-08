@@ -4,11 +4,6 @@ import { useParams, useRouter } from "next/navigation";
 import Chat from "../../chat"; // assuming Chat component is migrated
 import Sidebar from "@/components/sidebar";
 
-const userPrefersDark =
-	typeof window !== "undefined" &&
-	window.matchMedia &&
-	window.matchMedia("(prefers-color-scheme: dark)").matches;
-
 export default function ChatPage() {
   const router = useRouter();
   const params = useParams();
