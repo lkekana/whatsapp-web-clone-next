@@ -19,6 +19,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	title: "WhatsApp Clone",
 	description: "Built by Karen Okonkwo.",
+	themeColor: '#000000',
+  viewport: 'width=device-width, initial-scale=1',
+  manifest: '/manifest.json',
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/logo.png',
+    apple: '/apple-touch-icon.png',
+  },
+  openGraph: {
+    title: 'Whatsapp Web Clone',
+    url: 'https://whatsapp-clone-web.netlify.app/',
+    images: [{
+      url: 'https://res.cloudinary.com/karso/image/upload/v1624874114/Portfolio/Project%20Screenshots/p8yvzprijsyuro2h9gtb.png',
+    }],
+  },
 };
 
 export default function RootLayout({
