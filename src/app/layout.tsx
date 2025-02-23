@@ -5,8 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { UsersProvider } from "@/contexts/usersContext";
 import { SocketProvider } from "@/contexts/socketContext";
 import LoaderWrapper from "./loader-wrapper";
-import type { Viewport } from 'next'
-
+import type { Viewport } from "next";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -19,27 +18,29 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#000000',
-  width: 'device-width',
-  initialScale: 1,
-}
+	themeColor: "#000000",
+	width: "device-width",
+	initialScale: 1,
+};
 
 export const metadata: Metadata = {
 	title: "WhatsApp Clone",
 	description: "Built by Karen Okonkwo.",
-  manifest: '/manifest.json',
-  icons: {
-    icon: '/icon.png',
-    shortcut: '/logo.png',
-    apple: '/apple-touch-icon.png',
-  },
-  openGraph: {
-    title: 'Whatsapp Web Clone',
-    url: 'https://whatsapp-clone-web.netlify.app/',
-    images: [{
-      url: 'https://res.cloudinary.com/karso/image/upload/v1624874114/Portfolio/Project%20Screenshots/p8yvzprijsyuro2h9gtb.png',
-    }],
-  },
+	manifest: "/manifest.json",
+	icons: {
+		icon: "/icon.png",
+		shortcut: "/logo.png",
+		apple: "/apple-touch-icon.png",
+	},
+	openGraph: {
+		title: "Whatsapp Web Clone",
+		url: "https://whatsapp-clone-web.netlify.app/",
+		images: [
+			{
+				url: "https://res.cloudinary.com/karso/image/upload/v1624874114/Portfolio/Project%20Screenshots/p8yvzprijsyuro2h9gtb.png",
+			},
+		],
+	},
 };
 
 export default function RootLayout({
