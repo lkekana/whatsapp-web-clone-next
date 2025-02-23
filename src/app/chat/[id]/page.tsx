@@ -6,8 +6,8 @@ interface ChatPageProps {
 	params: { id: string };
 }
 
-export default function ChatPage({ params }: ChatPageProps) {
-	const { id } = params as { id: string };
+export default async function ChatPage({ params }: ChatPageProps) {
+	const { id } = await params;
 	return (
 		<div className="app">
 			<p className="app__mobile-message"> Only available on desktop 😊. </p>
