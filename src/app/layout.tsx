@@ -5,6 +5,8 @@ import { ThemeProvider } from "next-themes";
 import { UsersProvider } from "@/contexts/usersContext";
 import { SocketProvider } from "@/contexts/socketContext";
 import LoaderWrapper from "./loader-wrapper";
+import type { Viewport } from 'next'
+
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -16,11 +18,15 @@ const geistMono = Geist_Mono({
 	subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: '#000000',
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export const metadata: Metadata = {
 	title: "WhatsApp Clone",
 	description: "Built by Karen Okonkwo.",
-	themeColor: '#000000',
-  viewport: 'width=device-width, initial-scale=1',
   manifest: '/manifest.json',
   icons: {
     icon: '/icon.png',
