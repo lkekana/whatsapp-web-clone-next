@@ -10,6 +10,22 @@ interface ConvoProps {
 	messages: Message[];
 }
 
+// Helper function to parse WhatsApp's message formatting
+const parseContent = (content: string): string => {
+	// triple backticks for monospaced text (using s flag to span newlines)
+	let result = content.replace(/```(.*?)```/g, "<code>$1</code>");
+
+	// asterisks for bold
+	result = result.replace(/\*(.*?)\*/g, "<strong>$1</strong>");
+
+	// underscores for italics
+	result = result.replace(/_(.*?)_/g, "<em>$1</em>");
+
+	// tildes for strikethrough
+	result = result.replace(/~(.*?)~/g, "<del>$1</del>");
+	return result;
+};
+
 const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 	const labelledMessages = dateLabelledMessages(allMessages);
 	const messageDates = Object.keys(labelledMessages);
@@ -74,7 +90,13 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 									</div>
 								) : message.sender ? (
 									<p className="chat__msg chat__msg--rxd" ref={assignRef()}>
-										<span>{message.content}</span>
+										<span
+                      // biome-ignore lint/security/noDangerouslySetInnerHtml: edge case
+                      dangerouslySetInnerHTML={{
+                        __html: parseContent(message.content || ""),
+                      }}
+                    />
+
 										<span className="chat__msg-filler"> </span>
 										<span className="chat__msg-footer">
 											{formatDateTime(message.sent)}
@@ -89,7 +111,12 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 									</p>
 								) : (
 									<p className="chat__msg chat__msg--sent" ref={assignRef()}>
-										<span>{message.content}</span>
+										<span
+                      // biome-ignore lint/security/noDangerouslySetInnerHtml: edge case
+                      dangerouslySetInnerHTML={{
+                        __html: parseContent(message.content || ""),
+                      }}
+                    />
 										<span className="chat__msg-filler"> </span>
 										<span className="chat__msg-footer">
 											<span> {formatDateTime(message.sent)} </span>
