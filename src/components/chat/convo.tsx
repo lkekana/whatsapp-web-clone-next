@@ -1,25 +1,28 @@
 import Icon from "@/components/icon";
 import React from "react";
-import media from "@/assets/images/women.jpeg";
-import formatTime from "@/utils/formatTime";
-import type { Messages } from "@/data/contacts";
+import {formatDateTime, dateLabelledMessages} from "@/utils/dateTime";
 import Image from "next/image";
+import type { Message } from "@/data/contacts";
+import { isMessageRead, isMessageSent, getMessageStatus, isMessageReceived } from "@/utils/messages";
 
 interface ConvoProps {
 	lastMsgRef: React.RefObject<HTMLDivElement>;
-	messages: Messages;
+	messages: Message[];
 }
 
 const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
-	const dates = Object.keys(allMessages);
-
-	return dates.map((date, dateIndex) => {
-		const messages = allMessages[date];
+	const labelledMessages = dateLabelledMessages(allMessages);
+	const messageDates = Object.keys(labelledMessages);
+	return messageDates.map((date, dateIndex) => {
+		const dayMessages = labelledMessages[date];
 		return (
 			<div key={date}>
+				{/* Day Label */}
 				<div className="chat__date-wrapper">
 					<span className="chat__date"> {date}</span>
 				</div>
+
+				{/* Encryption Message (shown once at the top) */}
 				{dateIndex === 0 && (
 					<p className="chat__encryption-msg">
 						<Icon id="lock" className="chat__encryption-icon" />
@@ -28,9 +31,9 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 					</p>
 				)}
 				<div className="chat__msg-group">
-					{messages.map((message, msgIndex) => {
+					{dayMessages.map((message, msgIndex) => {
 						const assignRef = () =>
-							dateIndex === dates.length - 1 && msgIndex === messages.length - 1
+							dateIndex === messageDates.length - 1 && msgIndex === dayMessages.length - 1
 								? lastMsgRef
 								: undefined;
 						return (
@@ -43,19 +46,17 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 										}`}
 										ref={assignRef()}
 									>
-										<Image src={media} alt="" className="chat__img" />
+										<Image src={message.image} alt="" className="chat__img" />
 										<span className="chat__msg-footer">
-											<span>{formatTime(message.time)}</span>
+											<span>{formatDateTime(message.sent)}</span>
 											{!message.sender && (
 												<Icon
 													id={
-														message?.status === "sent"
-															? "singleTick"
-															: "doubleTick"
+														isMessageReceived(message) ? "doubleTick" : "singleTick"
 													}
-													aria-label={message?.status}
+													aria-label={getMessageStatus(message)}
 													className={`chat__msg-status-icon ${
-														message?.status === "read"
+														isMessageRead(message)
 															? "chat__msg-status-icon--blue"
 															: ""
 													}`}
@@ -76,7 +77,7 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 										<span>{message.content}</span>
 										<span className="chat__msg-filler"> </span>
 										<span className="chat__msg-footer">
-											{formatTime(message.time)}
+											{formatDateTime(message.sent)}
 										</span>
 										<button
 											type="button"
@@ -91,16 +92,14 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 										<span>{message.content}</span>
 										<span className="chat__msg-filler"> </span>
 										<span className="chat__msg-footer">
-											<span> {formatTime(message.time)} </span>
+											<span> {formatDateTime(message.sent)} </span>
 											<Icon
 												id={
-													message?.status === "sent"
-														? "singleTick"
-														: "doubleTick"
+													isMessageReceived(message) ? "doubleTick" : "singleTick"
 												}
-												aria-label={message?.status}
+												aria-label={getMessageStatus(message)}
 												className={`chat__msg-status-icon ${
-													message?.status === "read"
+													isMessageRead(message)
 														? "chat__msg-status-icon--blue"
 														: ""
 												}`}

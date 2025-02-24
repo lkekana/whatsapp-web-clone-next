@@ -13,7 +13,7 @@ export default async function ChatPage({ params }: ChatPageProps) {
 			<p className="app__mobile-message"> Only available on desktop 😊. </p>
 			<div className="app-content">
 				<Sidebar />
-				<Chat userId={Number.parseInt(id, 10)} />
+				<Chat userId={id} />
 			</div>
 		</div>
 	);

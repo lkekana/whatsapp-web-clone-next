@@ -11,15 +11,14 @@ import Search from "@/components/chat/search";
 import Profile from "@/components/chat/profile";
 import Convo from "@/components/chat/convo";
 import { useUsersContext } from "@/contexts/usersContext";
-import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
 
 interface ChatProps {
-	userId: number;
+	userId: string;
 }
 
 const Chat = ({ userId }: ChatProps) => {
-	const { users, setUserAsUnread, addNewMessage } = useUsersContext();
+	const { users, setUserAsUnread, addNewMessage, readUserMessages } = useUsersContext();
 	const user = users.find((u) => u.id === userId);
 
 	const lastMsgRef = useRef<HTMLDivElement>(null);
@@ -36,7 +35,7 @@ const Chat = ({ userId }: ChatProps) => {
 			router.push("/");
 		} else {
 			scrollToLastMsg();
-			setUserAsUnread(user.id);
+			readUserMessages(user.id);
 		}
 	}, []);
 
