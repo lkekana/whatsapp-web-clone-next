@@ -64,6 +64,7 @@ const UsersProvider = ({ children }: { children: ReactNode }) => {
 			const usersCopy = JSON.parse(JSON.stringify(users));
 			const newMsgObject: Message = {
 				content: response,
+				images: [],
 				sender: userId,
 				sent: new Date(),
 				received: new Date(0),
@@ -141,6 +142,7 @@ const UsersProvider = ({ children }: { children: ReactNode }) => {
 		const usersCopy = [...users];
 		const newMsgObject: Message = {
 			content: message,
+			images: [],
 			sender: null,
 			sent: new Date(),
 			received: new Date(0),
@@ -156,7 +158,7 @@ const UsersProvider = ({ children }: { children: ReactNode }) => {
 	const getMediaOnly = (userId: string) => {
 		const user = users.find((user) => user.id === userId);
 		if (!user) return [];
-		return user.messages.map((message) => message.image).filter((image) => image !== undefined);
+		return user.messages.flatMap((message) => message.images);
 	};
 
 	return (

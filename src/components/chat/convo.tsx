@@ -55,17 +55,31 @@ const Convo = ({ lastMsgRef, messages: allMessages }: ConvoProps) => {
 						return (
 							// biome-ignore lint/suspicious/noArrayIndexKey: key is unique
 							<React.Fragment key={`${date}-${msgIndex}`}>
-								{message.image ? (
+								{message.images.length > 0 ? (
 									<div
 										className={`chat__msg chat__img-wrapper ${
 											message.sender ? "chat__msg--rxd" : "chat__msg--sent"
 										}`}
 										ref={assignRef()}
 									>
-										<Image src={message.image} alt="" className="chat__img" />
+										{/* <Image src={message.image} alt="" className="chat__img" /> */}
+										<div className="chat__msg-content">
+										{message.images.map((image, index) => (
+											<Image key={`${image.src}-i${index}`} src={image} alt="" className="chat__img" />
+										))}
+										<p>
+										<span
+                      // biome-ignore lint/security/noDangerouslySetInnerHtml: edge case
+                      dangerouslySetInnerHTML={{
+                        __html: parseContent(message.content || ""),
+                      }}
+                    />
+					</p>
+					</div>
+		
 										<span className="chat__msg-footer">
 											<span>{formatDateTime(message.sent)}</span>
-											{!message.sender && (
+											{message.sender === null && (
 												<Icon
 													id={
 														isMessageReceived(message) ? "doubleTick" : "singleTick"

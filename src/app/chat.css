@@ -162,8 +162,18 @@
 }
 
 .chat__msg.chat__img-wrapper {
-	padding: 4px;
+	/* padding: 4px; */
 	width: 95%;
+}
+
+.chat__msg-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.chat__msg-content p {
+	/* add extra vertical padding */
+	padding: 4px;
 }
 
 .chat__msg--sent {
@@ -208,6 +218,7 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	padding: 4px;
 }
 
 .chat__msg-filler {
@@ -240,7 +251,7 @@
 .chat__img-wrapper .chat__msg-footer,
 .chat__img-wrapper .chat__msg-options-icon,
 .chat__img-wrapper .chat__msg-status-icon {
-	color: white;
+	/* color: white; */
 }
 
 .chat__msg-options {
