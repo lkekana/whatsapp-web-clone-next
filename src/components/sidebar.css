@@ -115,6 +115,10 @@
 	background-color: #ebebeb;
 }
 
+.sidebar-contact--active {
+	background-color: #ebebeb;
+}
+
 .sidebar-contact__avatar-wrapper {
 	width: 50px;
 	height: 50px;

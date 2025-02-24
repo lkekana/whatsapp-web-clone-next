@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import "./sidebar.css";
 import avatar from "@/assets/images/profile-picture-girl-1.jpeg";
 import Icon from "@/components/icon";
@@ -8,10 +8,29 @@ import Contact from "@/components/contact";
 import OptionsBtn from "@/components/optionsbutton";
 import { useUsersContext } from "@/contexts/usersContext";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+const CONTACT_HEIGHT = 72;
 
 const Sidebar = () => {
 	const { users: contacts } = useUsersContext();
-	console.log(contacts);
+	// const contactsRef = useRef<HTMLDivElement>(null);
+	// const pathname = usePathname();
+
+	// useEffect(() => {
+	// 	console.log(contacts);
+	// 	if (contactsRef.current) {
+	// 		if (pathname.startsWith("/chat")) {
+	// 			// extract the id from /chat/:id
+	// 			const contactId = pathname.split("/")[2];
+	// 			const index = contacts.findIndex((contact) => contact.id === contactId);
+	// 			if (index !== -1) {
+	// 				contactsRef.current.scrollTop = index * CONTACT_HEIGHT;
+	// 			}
+	// 		}
+	// 	}
+	// }, [contacts, pathname]);
+
 	return (
 		<aside className="sidebar">
 			<header className="header">
@@ -59,7 +78,8 @@ const Sidebar = () => {
 				</div>
 				<input className="search" placeholder="Search or start a new chat" />
 			</div>
-			<div className="sidebar__contacts">
+			{/* <div className="sidebar__contacts" ref={contactsRef}> */}
+			<div className="sidebar__contacts" >
 				{contacts.map((contact, index) => (
 					<Contact key={contact.id} contact={contact} />
 				))}
