@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import "../app/home.css";
-import Icon from "@/components/icon";
 import introImgLight from "@/assets/images/intro-connection-light.jpg";
 import introImgDark from "@/assets/images/intro-connection-dark.jpg";
 import Image from "next/image";
@@ -16,6 +15,7 @@ const HomeImage = () => {
 				src={darkMode ? introImgDark : introImgLight}
 				alt=""
 				className="home__img"
+				priority
 			/>
 		</div>
 	);

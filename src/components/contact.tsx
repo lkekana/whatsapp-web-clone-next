@@ -1,12 +1,16 @@
 import React from "react";
 import Icon from "@/components/icon";
 import Link from "next/link";
-import {formatDateTime} from "@/utils/dateTime";
+import { formatDateTime } from "@/utils/dateTime";
 import { useUsersContext } from "@/contexts/usersContext";
 import { pinnedUserUUIDs, type User } from "@/data/contacts";
 import Image from "next/image";
 import "./sidebar.css";
-import { isMessageRead, isMessageReceived, isMessageSent } from "@/utils/messages";
+import {
+	isMessageRead,
+	isMessageReceived,
+	isMessageSent,
+} from "@/utils/messages";
 import { usePathname } from "next/navigation";
 
 interface ContactProps {
@@ -14,7 +18,12 @@ interface ContactProps {
 }
 
 const Contact = ({ contact }: ContactProps) => {
-	const { setUserAsUnread, contactPinned, readUserMessages, numUnreadMessages } = useUsersContext();
+	const {
+		setUserAsUnread,
+		contactPinned,
+		readUserMessages,
+		numUnreadMessages,
+	} = useUsersContext();
 
 	const getLastMessage = (contact: User) => {
 		// const messageDates = Object.keys(contact.messages);
@@ -22,7 +31,9 @@ const Contact = ({ contact }: ContactProps) => {
 		// const messages = [...contact.messages[recentMessageDate]];
 		// const lastMessage = messages.pop();
 		// return lastMessage;
-		const messages = contact.messages.sort((a, b) => a.sent.getTime() - b.sent.getTime());
+		const messages = contact.messages.sort(
+			(a, b) => a.sent.getTime() - b.sent.getTime(),
+		);
 		return messages[messages.length - 1];
 	};
 	const unreadMessages = numUnreadMessages(contact.id);
@@ -34,9 +45,10 @@ const Contact = ({ contact }: ContactProps) => {
 		<Link
 			href={`/chat/${contact.id}`}
 			onClick={() => readUserMessages(contact.id)}
-			legacyBehavior
 		>
-			<a href={`/chat/${contact.id}`} className={`sidebar-contact ${isActive ? "sidebar-contact--active" : ""}`}>
+			<div
+				className={`sidebar-contact ${isActive ? "sidebar-contact--active" : ""}`}
+			>
 				<div className="sidebar-contact__avatar-wrapper">
 					<Image
 						src={contact.profile_picture}
@@ -53,19 +65,19 @@ const Contact = ({ contact }: ContactProps) => {
 					</div>
 					<div className="sidebar-contact__bottom-content">
 						<p className="sidebar-contact__message-wrapper">
-							{ lastMessage.sender !== contact.id &&
-							<Icon
-								id={
-									isMessageReceived(lastMessage) ? "doubleTick" : "singleTick"
-								}
-								aria-label={isMessageSent(lastMessage)}
-								className={`sidebar-contact__message-icon ${
-									isMessageRead(lastMessage)
-										? "sidebar-contact__message-icon--blue"
-										: ""
-								}`}
-							/>
-							}
+							{lastMessage.sender !== contact.id && (
+								<Icon
+									id={
+										isMessageReceived(lastMessage) ? "doubleTick" : "singleTick"
+									}
+									aria-label={isMessageSent(lastMessage)}
+									className={`sidebar-contact__message-icon ${
+										isMessageRead(lastMessage)
+											? "sidebar-contact__message-icon--blue"
+											: ""
+									}`}
+								/>
+							)}
 							<span
 								className={`sidebar-contact__message ${
 									unreadMessages > 0 ? "sidebar-contact__message--unread" : ""
@@ -92,7 +104,7 @@ const Contact = ({ contact }: ContactProps) => {
 						</div>
 					</div>
 				</div>
-			</a>
+			</div>
 		</Link>
 	);
 };

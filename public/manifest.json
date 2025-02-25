@@ -1,6 +1,23 @@
 {
 	"short_name": "Whatsapp Clone",
 	"name": "Whatsapp Web Clone",
+	"icons": [
+		{
+			"src": "icon.png",
+			"sizes": "32x32",
+			"type": "image/png"
+		},
+		{
+			"src": "logo.png",
+			"sizes": "32x32",
+			"type": "image/png"
+		},
+		{
+			"src": "apple-touch-icon.png",
+			"type": "image/png",
+			"sizes": "194x194"
+		}
+	],
 	"start_url": ".",
 	"display": "standalone",
 	"theme_color": "#000000",

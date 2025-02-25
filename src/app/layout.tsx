@@ -35,11 +35,11 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Whatsapp Web Clone",
 		url: "https://whatsapp-clone-web.netlify.app/",
-		images: [
-			{
-				url: "https://res.cloudinary.com/karso/image/upload/v1624874114/Portfolio/Project%20Screenshots/p8yvzprijsyuro2h9gtb.png",
-			},
-		],
+		// images: [
+		// 	{
+		// 		url: "https://res.cloudinary.com/karso/image/upload/v1624874114/Portfolio/Project%20Screenshots/p8yvzprijsyuro2h9gtb.png",
+		// 	},
+		// ],
 	},
 };
 

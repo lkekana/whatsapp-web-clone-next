@@ -1,9 +1,6 @@
 import React from "react";
 import "./home.css";
 import Icon from "@/components/icon";
-import introImgLight from "@/assets/images/intro-connection-light.jpg";
-import introImgDark from "@/assets/images/intro-connection-dark.jpg";
-import Image from "next/image";
 import HomeImage from "@/components/homeimage";
 
 const Home = () => {
