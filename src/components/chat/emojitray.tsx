@@ -1,5 +1,5 @@
-import type React from "react";
 import Icon from "@/components/icon";
+import type React from "react";
 
 const emojiTabs = [
 	{ icon: "recent", label: "Recent emojis", active: true },
@@ -24,7 +24,7 @@ const EmojiTray = ({
 	newMessage,
 	setNewMessage,
 }: EmojiTrayProps) => {
-	const addEmoji = (emoji: string) => {
+	const _addEmoji = (emoji: string) => {
 		setNewMessage(newMessage + emoji);
 	};
 
@@ -40,7 +40,11 @@ const EmojiTray = ({
 						className={`emojis__tab ${tab.active ? "emojis__tab--active" : ""}`}
 						key={tab.label}
 					>
-						<button type="button" aria-label={tab.label} key={tab.icon}>
+						<button
+							type="button"
+							aria-label={tab.label}
+							key={tab.icon}
+						>
 							<Icon id={tab.icon} className="emojis__tab-icon" />
 						</button>
 					</div>

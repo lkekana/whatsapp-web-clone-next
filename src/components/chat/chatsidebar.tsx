@@ -1,5 +1,5 @@
-import type React from "react";
 import Icon from "@/components/icon";
+import type React from "react";
 
 interface ChatSidebarProps {
 	heading: string;
@@ -15,7 +15,9 @@ const ChatSidebar = ({
 	children,
 }: ChatSidebarProps) => {
 	return (
-		<aside className={`chat-sidebar ${active ? "chat-sidebar--active" : ""}`}>
+		<aside
+			className={`chat-sidebar ${active ? "chat-sidebar--active" : ""}`}
+		>
 			<header className="header chat-sidebar__header">
 				<button type="button" onClick={closeSidebar}>
 					<Icon id="cancel" className="chat-sidebar__header-icon" />

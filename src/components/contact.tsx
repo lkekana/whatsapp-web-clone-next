@@ -1,10 +1,9 @@
-import React from "react";
 import Icon from "@/components/icon";
-import Link from "next/link";
-import { formatDateTime } from "@/utils/dateTime";
 import { useUsersContext } from "@/contexts/usersContext";
-import { pinnedUserUUIDs, type User } from "@/data/contacts";
+import type { User, } from "@/data/contacts";
+import { formatDateTime } from "@/utils/dateTime";
 import Image from "next/image";
+import Link from "next/link";
 import "./sidebar.css";
 import {
 	isMessageRead,
@@ -19,7 +18,6 @@ interface ContactProps {
 
 const Contact = ({ contact }: ContactProps) => {
 	const {
-		setUserAsUnread,
 		contactPinned,
 		readUserMessages,
 		numUnreadMessages,
@@ -58,9 +56,14 @@ const Contact = ({ contact }: ContactProps) => {
 				</div>
 				<div className="sidebar-contact__content">
 					<div className="sidebar-contact__top-content">
-						<h2 className="sidebar-contact__name"> {contact.name} </h2>
+						<h2 className="sidebar-contact__name">
+							{" "}
+							{contact.name}{" "}
+						</h2>
 						<span className="sidebar-contact__time">
-							{lastMessage ? formatDateTime(lastMessage.sent) : "No messages"}
+							{lastMessage
+								? formatDateTime(lastMessage.sent)
+								: "No messages"}
 						</span>
 					</div>
 					<div className="sidebar-contact__bottom-content">
@@ -68,7 +71,9 @@ const Contact = ({ contact }: ContactProps) => {
 							{lastMessage.sender !== contact.id && (
 								<Icon
 									id={
-										isMessageReceived(lastMessage) ? "doubleTick" : "singleTick"
+										isMessageReceived(lastMessage)
+											? "doubleTick"
+											: "singleTick"
 									}
 									aria-label={isMessageSent(lastMessage)}
 									className={`sidebar-contact__message-icon ${
@@ -80,22 +85,34 @@ const Contact = ({ contact }: ContactProps) => {
 							)}
 							<span
 								className={`sidebar-contact__message ${
-									unreadMessages > 0 ? "sidebar-contact__message--unread" : ""
+									unreadMessages > 0
+										? "sidebar-contact__message--unread"
+										: ""
 								}`}
 							>
-								{contact.typing ? <i> typing...</i> : lastMessage?.content}
+								{contact.typing ? (
+									<i> typing...</i>
+								) : (
+									lastMessage?.content
+								)}
 							</span>
 						</p>
 						<div className="sidebar-contact__icons">
 							{contactPinned(contact.id) && (
-								<Icon id="pinned" className="sidebar-contact__icon" />
+								<Icon
+									id="pinned"
+									className="sidebar-contact__icon"
+								/>
 							)}
 							{unreadMessages > 0 && (
 								<span className="sidebar-contact__unread">
 									{unreadMessages}
 								</span>
 							)}
-							<button type="button" aria-label="sidebar-contact__btn">
+							<button
+								type="button"
+								aria-label="sidebar-contact__btn"
+							>
 								<Icon
 									id="downArrow"
 									className="sidebar-contact__icon sidebar-contact__icon--dropdown"

@@ -1,10 +1,9 @@
-import React from "react";
-import groupAvatar from "@/assets/images/women.png";
 import media from "@/assets/images/placeholder.jpeg";
+import groupAvatar from "@/assets/images/women.png";
 import Checkbox from "@/components/checkbox";
 import Icon from "@/components/icon";
-import Image from "next/image";
 import type { User } from "@/data/contacts";
+import Image from "next/image";
 
 const groups = [
 	{
@@ -47,9 +46,15 @@ const Profile = ({ user }: ProfileProps) => {
 
 			<div className="profile__section profile__section--media">
 				<div className="sb profile__heading-wrapper">
-					<h2 className="profile__heading"> Media, Links and Documents </h2>
+					<h2 className="profile__heading">
+						{" "}
+						Media, Links and Documents{" "}
+					</h2>
 					<button type="button">
-						<Icon id="rightArrow" className="profile__heading-icon" />
+						<Icon
+							id="rightArrow"
+							className="profile__heading-icon"
+						/>
 					</button>
 				</div>
 				<div className="profile__media-wrapper">
@@ -77,7 +82,10 @@ const Profile = ({ user }: ProfileProps) => {
 						</span>
 					</p>
 					<button type="button" className="profile__action-right">
-						<Icon id="rightArrow" className="profile__heading-icon" />
+						<Icon
+							id="rightArrow"
+							className="profile__heading-icon"
+						/>
 					</button>
 				</li>
 				<li className="profile__action">
@@ -90,14 +98,20 @@ const Profile = ({ user }: ProfileProps) => {
 						</span>
 					</p>
 					<button type="button" className="profile__action-right">
-						<Icon id="rightArrow" className="profile__heading-icon" />{" "}
+						<Icon
+							id="rightArrow"
+							className="profile__heading-icon"
+						/>{" "}
 					</button>
 				</li>
 			</ul>
 
 			<div className="profile__section profile__section--about">
 				<div className="sb profile__heading-wrapper">
-					<h2 className="profile__heading"> About and phone number </h2>
+					<h2 className="profile__heading">
+						{" "}
+						About and phone number{" "}
+					</h2>
 				</div>
 				<ul>
 					<li className="profile__about-item">
@@ -116,7 +130,11 @@ const Profile = ({ user }: ProfileProps) => {
 				{groups.map((group) => (
 					<div className="profile__group" key={group.name}>
 						<div className="profile__group-avatar-wrapper">
-							<Image src={group.avatar} alt="Group 3" className="avatar" />
+							<Image
+								src={group.avatar}
+								alt="Group 3"
+								className="avatar"
+							/>
 						</div>
 						<div className="profile__group-content">
 							<p className="profile__group-text profile__group-text--top">

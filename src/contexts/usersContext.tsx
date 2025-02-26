@@ -1,10 +1,14 @@
 "use client";
-import { createContext, useContext, useEffect, useState } from "react";
-import contacts, { pinnedUserUUIDs, type Message, type User } from "@/data/contacts";
-import { useSocketContext } from "./socketContext";
-import type { ReactNode } from "react";
+import contacts, {
+	pinnedUserUUIDs,
+	type Message,
+	type User,
+} from "@/data/contacts";
 import { isMessageRead } from "@/utils/messages";
 import type { StaticImageData } from "next/image";
+import { createContext, useContext, useEffect, useState } from "react";
+import type { ReactNode } from "react";
+import { useSocketContext } from "./socketContext";
 
 const UsersContext = createContext<{
 	users: User[];
@@ -56,7 +60,10 @@ const UsersProvider = ({ children }: { children: ReactNode }) => {
 		_updateUserProp(userId, "typing", false);
 	};
 
-	const fetchMessageResponse = (data: { userId: string; response: string }) => {
+	const fetchMessageResponse = (data: {
+		userId: string;
+		response: string;
+	}) => {
 		setUsers((users) => {
 			const { userId, response } = data;
 
@@ -85,25 +92,25 @@ const UsersProvider = ({ children }: { children: ReactNode }) => {
 
 	const readUserMessages = (userId: string) => {
 		setUsers((users) => {
-		  const usersCopy = [...users];
-		  const userIndex = users.findIndex((user) => user.id === userId);
-		  if (userIndex === -1) return users; // User not found
-	  
-		  const user = usersCopy[userIndex];
-		  user.messages = user.messages.map((message) => {
-			if (message.sender === user.id) {
-			  return {
-				...message,
-				read: new Date(),
-			  };
-			}
-			return message;
-		  });
-	  
-		  usersCopy[userIndex] = user;
-		  return usersCopy;
+			const usersCopy = [...users];
+			const userIndex = users.findIndex((user) => user.id === userId);
+			if (userIndex === -1) return users; // User not found
+
+			const user = usersCopy[userIndex];
+			user.messages = user.messages.map((message) => {
+				if (message.sender === user.id) {
+					return {
+						...message,
+						read: new Date(),
+					};
+				}
+				return message;
+			});
+
+			usersCopy[userIndex] = user;
+			return usersCopy;
 		});
-	  };
+	};
 
 	const numUnreadMessages = (userId: string) => {
 		const user = users.find((user) => user.id === userId);
@@ -114,8 +121,7 @@ const UsersProvider = ({ children }: { children: ReactNode }) => {
 			// ensure we only count unread messages last message we sent (if exists)
 			if (message.sender !== user.id) {
 				unread = 0;
-			}
-			else if (message.sender === user.id && !isMessageRead(message)) {
+			} else if (message.sender === user.id && !isMessageRead(message)) {
 				unread++;
 			}
 		}
@@ -162,7 +168,17 @@ const UsersProvider = ({ children }: { children: ReactNode }) => {
 	};
 
 	return (
-		<UsersContext.Provider value={{ users, setUserAsUnread, addNewMessage, contactPinned, readUserMessages, numUnreadMessages, getMediaOnly }}>
+		<UsersContext.Provider
+			value={{
+				users,
+				setUserAsUnread,
+				addNewMessage,
+				contactPinned,
+				readUserMessages,
+				numUnreadMessages,
+				getMediaOnly,
+			}}
+		>
 			{children}
 		</UsersContext.Provider>
 	);

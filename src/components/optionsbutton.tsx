@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
 import Icon from "@/components/icon";
+import { useState } from "react";
 import "./optionsbutton.css";
 
 interface OptionsBtnProps {
@@ -44,7 +44,7 @@ const OptionsBtn = ({
 					showOptions ? "options-btn__options--active" : ""
 				} ${position === "right" ? "options-btn__options--right" : ""}`}
 			>
-				{options.map((option, index) => (
+				{options.map((option) => (
 					<li className="options-btn__option" key={option}>
 						{option}
 					</li>

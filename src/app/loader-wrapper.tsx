@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
 import Loader from "@/components/loader";
+import { useEffect, useState } from "react";
 
 const LOAD_TIME_MS = 3000;
 

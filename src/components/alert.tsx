@@ -1,4 +1,3 @@
-import React from "react";
 import Icon from "@/components/icon";
 import "./sidebar.css";
 
@@ -8,7 +7,10 @@ const alerts = [
 			<Icon id="notification" className="sidebar__alert-icon" />
 		</div>
 		<div className="sidebar__alert-texts">
-			<p className="sidebar__alert-text"> Get notified of new messages </p>
+			<p className="sidebar__alert-text">
+				{" "}
+				Get notified of new messages{" "}
+			</p>
 			<p className="sidebar__alert-text"> Turn on your notifications </p>
 		</div>
 	</div>,

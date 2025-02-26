@@ -1,5 +1,5 @@
-import type React from "react";
 import Icon from "@/components/icon";
+import type React from "react";
 
 const attachButtons = [
 	{ icon: "attachRooms", label: "Choose room" },

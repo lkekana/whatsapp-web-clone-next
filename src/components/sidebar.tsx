@@ -1,16 +1,14 @@
 "use client";
-import React, { useRef, useEffect } from "react";
 import "./sidebar.css";
 import avatar from "@/assets/images/profile-picture-girl-1.jpeg";
-import Icon from "@/components/icon";
 import Alert from "@/components/alert";
 import Contact from "@/components/contact";
+import Icon from "@/components/icon";
 import OptionsBtn from "@/components/optionsbutton";
 import { useUsersContext } from "@/contexts/usersContext";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 
-const CONTACT_HEIGHT = 72;
+// const CONTACT_HEIGHT = 72;
 
 const Sidebar = () => {
 	const { users: contacts } = useUsersContext();
@@ -35,10 +33,18 @@ const Sidebar = () => {
 		<aside className="sidebar">
 			<header className="header">
 				<div className="sidebar__avatar-wrapper">
-					<Image src={avatar} alt="Karen Okonkwo" className="avatar" />
+					<Image
+						src={avatar}
+						alt="Karen Okonkwo"
+						className="avatar"
+					/>
 				</div>
 				<div className="sidebar__actions">
-					<button type="button" className="sidebar__action" aria-label="Status">
+					<button
+						type="button"
+						className="sidebar__action"
+						aria-label="Status"
+					>
 						<Icon
 							id="status"
 							className="sidebar__action-icon sidebar__action-icon--status"
@@ -76,11 +82,14 @@ const Sidebar = () => {
 						<Icon id="back" />
 					</button>
 				</div>
-				<input className="search" placeholder="Search or start a new chat" />
+				<input
+					className="search"
+					placeholder="Search or start a new chat"
+				/>
 			</div>
 			{/* <div className="sidebar__contacts" ref={contactsRef}> */}
-			<div className="sidebar__contacts" >
-				{contacts.map((contact, index) => (
+			<div className="sidebar__contacts">
+				{contacts.map((contact) => (
 					<Contact key={contact.id} contact={contact} />
 				))}
 			</div>

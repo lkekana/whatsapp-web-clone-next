@@ -1,10 +1,9 @@
 "use client";
-import React from "react";
 import "../app/home.css";
-import introImgLight from "@/assets/images/intro-connection-light.jpg";
 import introImgDark from "@/assets/images/intro-connection-dark.jpg";
-import Image from "next/image";
+import introImgLight from "@/assets/images/intro-connection-light.jpg";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 const HomeImage = () => {
 	const { theme } = useTheme();

@@ -2,14 +2,14 @@
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import "./chat.css";
-import EmojiTray from "@/components/chat/emojitray";
 import ChatInput from "@/components/chat/chatinput";
-import Header from "@/components/chat/header";
 import ChatSidebar from "@/components/chat/chatsidebar";
-import Icon from "@/components/icon";
-import Search from "@/components/chat/search";
-import Profile from "@/components/chat/profile";
 import Convo from "@/components/chat/convo";
+import EmojiTray from "@/components/chat/emojitray";
+import Header from "@/components/chat/header";
+import Profile from "@/components/chat/profile";
+import Search from "@/components/chat/search";
+import Icon from "@/components/icon";
 import { useUsersContext } from "@/contexts/usersContext";
 import { useRouter } from "next/navigation";
 
@@ -18,7 +18,8 @@ interface ChatProps {
 }
 
 const Chat = ({ userId }: ChatProps) => {
-	const { users, setUserAsUnread, addNewMessage, readUserMessages } = useUsersContext();
+	const { users, addNewMessage, readUserMessages } =
+		useUsersContext();
 	const user = users.find((u) => u.id === userId);
 
 	const lastMsgRef = useRef<HTMLDivElement>(null);
@@ -71,14 +72,20 @@ const Chat = ({ userId }: ChatProps) => {
 				{user && (
 					<Header
 						user={user}
-						openProfileSidebar={() => openSidebar(setShowProfileSidebar)}
-						openSearchSidebar={() => openSidebar(setShowSearchSidebar)}
+						openProfileSidebar={() =>
+							openSidebar(setShowProfileSidebar)
+						}
+						openSearchSidebar={() =>
+							openSidebar(setShowSearchSidebar)
+						}
 					/>
 				)}
 				<div className="chat__content">
 					{user && (
 						<Convo
-							lastMsgRef={lastMsgRef as React.RefObject<HTMLDivElement>}
+							lastMsgRef={
+								lastMsgRef as React.RefObject<HTMLDivElement>
+							}
 							messages={user.messages}
 						/>
 					)}

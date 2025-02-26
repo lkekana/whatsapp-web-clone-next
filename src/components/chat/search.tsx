@@ -1,5 +1,4 @@
 import Icon from "@/components/icon";
-import React from "react";
 
 const Search = () => {
 	return (

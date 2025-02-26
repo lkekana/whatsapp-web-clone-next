@@ -6,8 +6,8 @@ export const formatTime = (timeString: string) => {
 };
 
 export const formatDateTime = (date: Date) => {
-	const hours = date.getHours().toString().padStart(2, '0');
-	const minutes = date.getMinutes().toString().padStart(2, '0');
+	const hours = date.getHours().toString().padStart(2, "0");
+	const minutes = date.getMinutes().toString().padStart(2, "0");
 	return `${hours}:${minutes}`;
 };
 
@@ -24,11 +24,15 @@ export const dateLabel = (date: Date) => {
 	}
 	// return dates like "04/06/2021"
 	return date.toLocaleDateString("en-GB");
-}
+};
 
-export const dateLabelledMessages = (messages: Message[]): Record<string, Message[]> => {
+export const dateLabelledMessages = (
+	messages: Message[],
+): Record<string, Message[]> => {
 	const result: Record<string, Message[]> = {};
-	const sortedMessages = messages.sort((a, b) => a.sent.getTime() - b.sent.getTime());
+	const sortedMessages = messages.sort(
+		(a, b) => a.sent.getTime() - b.sent.getTime(),
+	);
 	for (const message of sortedMessages) {
 		const label = dateLabel(message.sent);
 		if (!result[label]) {
@@ -37,4 +41,4 @@ export const dateLabelledMessages = (messages: Message[]): Record<string, Messag
 		result[label].push(message);
 	}
 	return result;
-}
+};

@@ -1,4 +1,3 @@
-import React from "react";
 import Icon from "@/components/icon";
 import OptionsBtn from "@/components/optionsbutton";
 import type { User } from "@/data/contacts";
@@ -26,7 +25,11 @@ const Header = ({
 					}
 				}}
 			>
-				<Image src={user.profile_picture} alt={user?.name} className="avatar" />
+				<Image
+					src={user.profile_picture}
+					alt={user?.name}
+					className="avatar"
+				/>
 			</div>
 
 			<div

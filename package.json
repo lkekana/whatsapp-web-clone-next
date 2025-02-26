@@ -6,7 +6,9 @@
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "biome lint --fix .",
+		"isort": "biome check --formatter-enabled=false --linter-enabled=false --organize-imports-enabled=true --write src/",
+		"format": "biome format --fix  ."
 	},
 	"dependencies": {
 		"next": "15.1.6",

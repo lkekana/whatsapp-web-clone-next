@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./loader.css";
 import Icon from "@/components/icon";
 
