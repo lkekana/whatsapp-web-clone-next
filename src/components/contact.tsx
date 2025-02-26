@@ -6,9 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import "./sidebar.css";
 import {
+	getMessageStatus,
 	isMessageRead,
 	isMessageReceived,
-	isMessageSent,
 } from "@/utils/messages";
 import { usePathname } from "next/navigation";
 
@@ -75,7 +75,7 @@ const Contact = ({ contact }: ContactProps) => {
 											? "doubleTick"
 											: "singleTick"
 									}
-									aria-label={isMessageSent(lastMessage)}
+									aria-label={getMessageStatus(lastMessage)}
 									className={`sidebar-contact__message-icon ${
 										isMessageRead(lastMessage)
 											? "sidebar-contact__message-icon--blue"

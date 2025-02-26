@@ -1,12 +1,22 @@
 import Sidebar from "@/components/sidebar";
 import Chat from "../../chat"; // assuming Chat component is migrated
 
-interface ChatPageProps {
-	params: { id: string };
+export type PageProps<T extends { [key: string]: string }> = {
+	params: Promise<T>;
+	searchParams: Promise<{
+	  [key: string]: string | string[] | undefined;
+	}>;
+  };
+
+interface ChatPageProps<T = { id: string }> {
+	params: Promise<T>;
+	searchParams: Promise<{
+		[key: string]: string | string[] | undefined;
+	}>;
 }
 
 export default async function ChatPage({ params }: ChatPageProps) {
-	const { id } = await params;
+	const { id } = await Promise.resolve(params);
 	return (
 		<div className="app">
 			<p className="app__mobile-message">
