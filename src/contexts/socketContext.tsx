@@ -24,7 +24,7 @@ const SocketProvider = ({ children }: { children: React.ReactNode }) => {
 
 	if (!socket) {
 		// return <div>Loading socket…</div>;
-		return null;
+		return <>{children}</>
 	}
 
 	return (
