@@ -11,19 +11,20 @@
 		"format": "biome format --fix  ."
 	},
 	"dependencies": {
-		"next": "15.1.6",
-		"next-themes": "^0.4.4",
-		"react": "^19.0.0",
-		"react-dom": "^19.0.0",
-		"socket.io-client": "^4.8.1",
+		"next": "~15.1.12",
+		"next-themes": "^0.4.6",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
+		"socket.io-client": "^4.8.3",
 		"uuid": "^11.1.0"
 	},
 	"devDependencies": {
-		"@types/node": "^20",
-		"@types/react": "^19",
-		"@types/react-dom": "^19",
-		"postcss": "^8",
-		"tailwindcss": "^3.4.1",
-		"typescript": "^5"
-	}
+		"@types/node": "^20.19.37",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"postcss": "^8.5.8",
+		"tailwindcss": "^3.4.19",
+		"typescript": "^5.9.3"
+	},
+	"packageManager": "pnpm@10.32.1+sha1.3d0200745a9faf35ca009ea7fde8d6592ff17c4c"
 }
