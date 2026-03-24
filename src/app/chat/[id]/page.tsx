@@ -4,9 +4,9 @@ import Chat from "../../chat"; // assuming Chat component is migrated
 export type PageProps<T extends { [key: string]: string }> = {
 	params: Promise<T>;
 	searchParams: Promise<{
-	  [key: string]: string | string[] | undefined;
+		[key: string]: string | string[] | undefined;
 	}>;
-  };
+};
 
 interface ChatPageProps<T = { id: string }> {
 	params: Promise<T>;

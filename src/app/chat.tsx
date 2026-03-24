@@ -18,8 +18,7 @@ interface ChatProps {
 }
 
 const Chat = ({ userId }: ChatProps) => {
-	const { users, addNewMessage, readUserMessages } =
-		useUsersContext();
+	const { users, addNewMessage, readUserMessages } = useUsersContext();
 	const user = users.find((u) => u.id === userId);
 
 	const lastMsgRef = useRef<HTMLDivElement>(null);

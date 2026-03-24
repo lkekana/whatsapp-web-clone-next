@@ -33,19 +33,14 @@ const icons = {
 				width="53"
 				height="53"
 				aria-label="attach-camera"
-			role="img"
-			{...props}
+				role="img"
+				{...props}
 			>
 				<defs>
-					<circle
-						id="camera-SVGID_1_"
-						cx="26.5"
-						cy="26.5"
-						r="25.5"
-					/>
+					<circle id="camera-SVGID_1_" cx="26.5" cy="26.5" r="25.5" />
 				</defs>
 				<clipPath id="camera-SVGID_2_">
-					<use xlinkHref="#camera-SVGID_1_" overflow="visible"/>
+					<use xlinkHref="#camera-SVGID_1_" overflow="visible" />
 				</clipPath>
 				<g clipPath="url(#camera-SVGID_2_)">
 					<path
@@ -79,12 +74,7 @@ const icons = {
 			{...props}
 		>
 			<defs>
-				<circle
-					id="contact-SVGID_1_"
-					cx="26.5"
-					cy="26.5"
-					r="25.5"
-				/>
+				<circle id="contact-SVGID_1_" cx="26.5" cy="26.5" r="25.5" />
 			</defs>
 			<clipPath id="contact-SVGID_2_">
 				<use xlinkHref="#contact-SVGID_1_" overflow="visible" />
@@ -119,15 +109,10 @@ const icons = {
 			{...props}
 		>
 			<defs>
-				<circle
-					id="document-SVGID_1_"
-					cx="26.5"
-					cy="26.5"
-					r="25.5"
-				/>
+				<circle id="document-SVGID_1_" cx="26.5" cy="26.5" r="25.5" />
 			</defs>
 			<clipPath id="document-SVGID_2_">
-				<use xlinkHref="#document-SVGID_1_" overflow="visible"/>
+				<use xlinkHref="#document-SVGID_1_" overflow="visible" />
 			</clipPath>
 			<g clipPath="url(#document-SVGID_2_)">
 				<path
@@ -159,15 +144,10 @@ const icons = {
 			{...props}
 		>
 			<defs>
-				<circle
-					id="image-SVGID_1_"
-					cx="26.5"
-					cy="26.5"
-					r="25.5"
-				/>
+				<circle id="image-SVGID_1_" cx="26.5" cy="26.5" r="25.5" />
 			</defs>
 			<clipPath id="image-SVGID_2_">
-				<use xlinkHref="#image-SVGID_1_" overflow="visible"/>
+				<use xlinkHref="#image-SVGID_1_" overflow="visible" />
 			</clipPath>
 			<g clipPath="url(#image-SVGID_2_)">
 				<path
@@ -178,7 +158,7 @@ const icons = {
 					fill="#BF59CF"
 					d="M53 26.5H-1.1c0 14.6 13 27.6 27.6 27.6s27.6-13 27.6-27.6H53z"
 				/>
-				<path fill="#AC44CF" d="M17 24.5h18v9H17z"/>
+				<path fill="#AC44CF" d="M17 24.5h18v9H17z" />
 			</g>
 			<g fill="#F5F5F5">
 				<path
@@ -201,15 +181,10 @@ const icons = {
 			{...props}
 		>
 			<defs>
-				<circle
-					id="rooms-SVGID_1_"
-					cx="26.5"
-					cy="26.5"
-					r="25.5"
-				/>
+				<circle id="rooms-SVGID_1_" cx="26.5" cy="26.5" r="25.5" />
 			</defs>
 			<clipPath id="rooms-SVGID_2_">
-				<use xlinkHref="#rooms-SVGID_1_" overflow="visible"/>
+				<use xlinkHref="#rooms-SVGID_1_" overflow="visible" />
 			</clipPath>
 			<g clipPath="url(#rooms-SVGID_2_)">
 				<path
@@ -220,7 +195,7 @@ const icons = {
 					fill="#4079EC"
 					d="M53 26.5H-1.1c0 14.6 13 27.6 27.6 27.6s27.6-13 27.6-27.6H53z"
 				/>
-				<path fill="#396CD3" d="M17 24.5h15v9H17z"/>
+				<path fill="#396CD3" d="M17 24.5h15v9H17z" />
 			</g>
 			<g fill="#F5F5F5">
 				<path
@@ -755,10 +730,7 @@ const icons = {
 				fill="currentColor"
 				d="M12.072 1.761a10.05 10.05 0 0 0-9.303 5.65.977.977 0 0 0 1.756.855 8.098 8.098 0 0 1 7.496-4.553.977.977 0 1 0 .051-1.952zM1.926 13.64a10.052 10.052 0 0 0 7.461 7.925.977.977 0 0 0 .471-1.895 8.097 8.097 0 0 1-6.012-6.386.977.977 0 0 0-1.92.356zm13.729 7.454a10.053 10.053 0 0 0 6.201-8.946.976.976 0 1 0-1.951-.081v.014a8.097 8.097 0 0 1-4.997 7.209.977.977 0 0 0 .727 1.813l.02-.009z"
 			/>
-			<path
-				fill="#009588"
-				d="M19 1.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"
-			/>
+			<path fill="#009588" d="M19 1.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" />
 		</svg>
 	),
 	sticker: (props: SvgProps) => (

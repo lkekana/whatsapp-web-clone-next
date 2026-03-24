@@ -1,4 +1,3 @@
-
 import "./home.css";
 import HomeImage from "@/components/homeimage";
 import Icon from "@/components/icon";

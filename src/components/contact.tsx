@@ -1,6 +1,6 @@
 import Icon from "@/components/icon";
 import { useUsersContext } from "@/contexts/usersContext";
-import type { User, } from "@/data/contacts";
+import type { User } from "@/data/contacts";
 import { formatDateTime } from "@/utils/dateTime";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,11 +17,8 @@ interface ContactProps {
 }
 
 const Contact = ({ contact }: ContactProps) => {
-	const {
-		contactPinned,
-		readUserMessages,
-		numUnreadMessages,
-	} = useUsersContext();
+	const { contactPinned, readUserMessages, numUnreadMessages } =
+		useUsersContext();
 
 	const getLastMessage = (contact: User) => {
 		// const messageDates = Object.keys(contact.messages);

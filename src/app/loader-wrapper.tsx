@@ -6,7 +6,9 @@ const LOAD_TIME_MS = 3000;
 
 export default function LoaderWrapper({
 	children,
-}: { children: React.ReactNode }) {
+}: {
+	children: React.ReactNode;
+}) {
 	const [appLoaded, setAppLoaded] = useState(false);
 	const [startLoadProgress, setStartLoadProgress] = useState(false);
 

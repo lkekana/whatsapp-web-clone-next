@@ -8,7 +8,7 @@ const SocketContext = createContext<Socket | null>(null);
 const useSocketContext = () => useContext(SocketContext);
 
 const SocketProvider = ({ children }: { children: React.ReactNode }) => {
-	const [socket, setSocket] = useState<Socket | null>(null);
+	const [socket, _setSocket] = useState<Socket | null>(null);
 
 	useEffect(() => {
 		// const SOCKET_URL = window.location.origin.includes("localhost")
@@ -24,7 +24,7 @@ const SocketProvider = ({ children }: { children: React.ReactNode }) => {
 
 	if (!socket) {
 		// return <div>Loading socket…</div>;
-		return <>{children}</>
+		return <>{children}</>;
 	}
 
 	return (

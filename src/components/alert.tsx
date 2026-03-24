@@ -2,7 +2,7 @@ import Icon from "@/components/icon";
 import "./sidebar.css";
 
 const alerts = [
-	<div className="sidebar__alert sidebar__alert--info">
+	<div className="sidebar__alert sidebar__alert--info" key="info">
 		<div className="sidebar__alert-icon-wrapper">
 			<Icon id="notification" className="sidebar__alert-icon" />
 		</div>
@@ -14,7 +14,7 @@ const alerts = [
 			<p className="sidebar__alert-text"> Turn on your notifications </p>
 		</div>
 	</div>,
-	<div className="sidebar__alert sidebar__alert--danger">
+	<div className="sidebar__alert sidebar__alert--danger" key="danger">
 		<div className="sidebar__alert-icon-wrapper">
 			<Icon id="notification" className="sidebar__alert-icon" />
 		</div>
@@ -25,7 +25,7 @@ const alerts = [
 			</p>
 		</div>
 	</div>,
-	<div className="sidebar__alert sidebar__alert--warning">
+	<div className="sidebar__alert sidebar__alert--warning" key="warning">
 		<div className="sidebar__alert-icon-wrapper">
 			<Icon id="noWifi" className="sidebar__alert-icon" />
 		</div>

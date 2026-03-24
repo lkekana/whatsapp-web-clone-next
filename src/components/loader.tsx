@@ -1,4 +1,3 @@
-
 import "./loader.css";
 import Icon from "@/components/icon";
 
