@@ -1,40 +1,41 @@
 # Whatsapp Web Clone
+https://green-chat-clone.netlify.app/
 
 A Next.js fork of [Karen](https://github.com/KarenOk)'s [Whatsapp Web Clone](https://github.com/KarenOk/whatsapp-web-clone) project.
 
-Built with Next.js, React, and Socket.IO.
-
-Check out its [backend service here](https://github.com/KarenOk/whatsapp-web-clone-backend) which implements WebSocket communication.
+Built with Next.js, React, and Socket.IO
 
 ## Getting Started
 
-1. Download and Install Node.js from https://nodejs.org/en/download/
+### Try it out!
+I've deployed the project on Netlify, so you can check it out here: [https://green-chat-clone.netlify.app/](https://green-chat-clone.netlify.app/) and see how it works.
 
-2. In the root project directory, type `pnpm install` to install the project's dependencies.
+
+### Running the project locally
+Assuming you have Node.js installed:
+
+1. Clone the repository to your local machine:
 ```bash
-npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
+git clone https://github.com/lkekana/whatsapp-web-clone-next.git
 ```
 
-3. Once installation is complete, type `pnpm dev` to start the project in your local browser.
+2. Install the project's dependencies.
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+# or npm install
+```
+
+3. Run the development server.
+```bash
 pnpm dev
-# or
-bun dev
+# or npm run dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to open the project.
 
-Note: You will need to run the [backend service](https://github.com/KarenOk/whatsapp-web-clone-backend) to simulate getting responses when you send messages.
+## Why?
+
+I needed a WhatsApp-like interface for another project (TBA btw) and stumbled into Karen's project, which was perfect for my needs. I also wanted to learn more about Next.js (and see firsthand how it speeds up development for full-stack applications), so I decided to fork the project and convert it to Next.js to find out.
 
 ## Technologies
 [Next.js](https://nextjs.org) - React Framework
